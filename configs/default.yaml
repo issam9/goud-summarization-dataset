@@ -1,0 +1,27 @@
+seed: 42
+
+tokenizer: 
+  encoder_max_length: 256
+  decoder_max_length: 32
+  
+model:
+  # All parameters related to the model
+  name: 'aubmindlab/bert-base-arabertv02-twitter'
+
+trainer:
+  # All parameters related to Trainer 
+  num_epochs: 20
+  batch_size: 8
+  weight_decay: 0.01
+  warmup_steps: 1000
+  save_model: False
+  predict: True
+  fp16: True
+  gradient_accumulation_steps: 4
+
+generate:
+  max_length: 32
+  min_length: 4
+  early_stopping: True
+  num_beams: 5
+  no_repeat_ngram_size: 2
