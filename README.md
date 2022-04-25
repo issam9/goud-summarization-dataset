@@ -3,12 +3,12 @@
 This repo holds the training code for [Goud.ma: a News Dataset for Summarization in Moroccan Darija](https://openreview.net/pdf?id=BMVq5MELb9)
 
 ## Dataset
-Goud-sum contains 158k articles and their headlines extracted from [Goud.ma](https://www.goud.ma/) news website. The articles are written in the Arabic script. All headlines are in Moroccan Darija, while articles may be in Moroccan Darija, in Modern Standard Arabic, or a mix of both (code-switched Moroccan Darija).
+Goud dataset contains 158k articles and their headlines extracted from [Goud.ma](https://www.goud.ma/) news website. The articles are written in the Arabic script. All headlines are in Moroccan Darija, while articles may be in Moroccan Darija, in Modern Standard Arabic, or a mix of both (code-switched Moroccan Darija).
 
 You can find models and dataset on [Goud Hugging Face Organization](https://huggingface.co/Goud).
 
 ### Data Splits
-| Dataset Split | Number of Instances in Split                |
+| Split         | Number of Instances                         |
 | ------------- | ------------------------------------------- |
 | Train         | 139,288                                     |
 | Validation    | 9,497                                       |
@@ -16,19 +16,20 @@ You can find models and dataset on [Goud Hugging Face Organization](https://hugg
 
 ### Characteristics
 |                              | Articles         | Headlines      |
-| --------------               | -----------------|--------------  |
-| The number of tokens         | 26,780,273       | 2,143,493      | 
+| ------------------           | -----------------|--------------  |
+| The number of tokens         | 26,780,273       | 2,143,493      |
 | The number of unique tokens  | 1,229,993        | 236,593        |
 | Minimum number of tokens     | 32               | 4              |
 | Maximum number of tokens     | 6,025            | 74             |
 | Average number of tokens     | 169.19           | 13.54          |
 
 ## Models
-We train encoder-decoder baselines that available on HuggingFace. We warmstart 
-the model with available BERT checkpoints and finetune it for the task of Text Summarization.
+We train encoder-decoder baselines that are available on HuggingFace. We warm-start 
+the model with pretrained BERT checkpoints and finetune it for the task of Text Summarization.
+This approach was described in this paper: [Leveraging Pre-trained Checkpoints for Sequence Generation Tasks](https://arxiv.org/abs/1907.12461).
 
 ### Results
-The results of warmstarting the encoder and decoder with 3 different BERT checkpoints on the test set.
+The results of warm-starting the encoder and decoder with 3 different BERT checkpoints on the test set.
 
 |BERT checkpoint| ROUGE-1  | ROUGE-2  |  ROUGE-L   |
 |---------------|----------|----------|----------- |
@@ -63,7 +64,7 @@ python train.py trainer.num_epochs=10 generate.num_beams=3
 
 ### How to use
 
-Models are uploaded to Hugging Face, 
+Models are uploaded to Hugging Face
 
 ```python
 from transformers import EncoderDecoderModel, BertTokenizer
