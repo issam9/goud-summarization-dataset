@@ -1,27 +1,27 @@
 seed: 42
 
 tokenizer: 
-  encoder_max_length: 256
-  decoder_max_length: 32
+  encoder_max_length: 256                               # articles will be truncated to this length
+  decoder_max_length: 32                                # headlines will be truncated to this length
   
 model:
   # All parameters related to the model
-  name: 'aubmindlab/bert-base-arabertv02-twitter'
+  name: 'aubmindlab/bert-base-arabertv02-twitter'       # pretrained model name
 
 trainer:
   # All parameters related to Trainer 
-  num_epochs: 20
-  batch_size: 8
-  weight_decay: 0.01
-  warmup_steps: 1000
-  save_model: False
-  predict: True
-  fp16: True
-  gradient_accumulation_steps: 4
+  num_epochs: 20                                        # number of training epochs
+  batch_size: 8                                         # batch size
+  weight_decay: 0.01                                    # weight decay
+  warmup_steps: 1000                                    # number of warmup steps
+  save_model: False                                     # whether to save the model at the end
+  predict: True                                         # Whether to run prediction on test set and show results
+  fp16: True                                            # whether to use floating point precision
+  gradient_accumulation_steps: 4                        # number of gradient accumulation steps
 
 generate:
-  max_length: 32
-  min_length: 4
-  early_stopping: True
-  num_beams: 5
-  no_repeat_ngram_size: 2
+  max_length: 32                                        # max length of the output summaries
+  min_length: 4                                         # min length of the output summaries
+  early_stopping: True                                  # stop beam search when at least num_beams sentences are finished per batch
+  num_beams: 5                                          # Number of beams for Beam Search
+  no_repeat_ngram_size: 2                               # Prevent the model from repeating bigrams
