@@ -89,13 +89,12 @@ output = tokenizer.decode(generated, skip_special_tokens=True)
 ## Citation
 
 ```
-@inproceedings{
-issam2022goudma,
-title={Goud.ma: a News Article Dataset for Summarization in Moroccan Darija},
-author={Abderrahmane Issam and Khalil Mrini},
-booktitle={3rd Workshop on African Natural Language Processing},
-year={2022},
-url={https://openreview.net/forum?id=BMVq5MELb9}
+@inproceedings{issam2022goudma,
+  title={Goud.ma: a News Article Dataset for Summarization in Moroccan Darija},
+  author={Abderrahmane Issam and Khalil Mrini},
+  booktitle={3rd Workshop on African Natural Language Processing},
+  year={2022},
+  url={https://openreview.net/forum?id=BMVq5MELb9}
 }
 ```
 
